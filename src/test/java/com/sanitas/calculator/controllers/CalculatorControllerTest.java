@@ -49,7 +49,7 @@ public class CalculatorControllerTest {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal(10));
     operationRequest.setNumber2(new BigDecimal(15));
-    operationRequest.setOperation(OperationEnum.SUBTRACT);
+    operationRequest.setOperation(OperationEnum.SUBTRACTION);
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 

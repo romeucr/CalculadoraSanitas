@@ -1,0 +1,18 @@
+package com.sanitas.calculator.validators;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+@Constraint(validatedBy = ValidOperationsValidator.class )
+@Target({ FIELD })
+@Retention(RUNTIME)
+public @interface ValidOperations {
+  String message() default "The operation informed is invalid or has not yet been implemented.";
+  Class<?>[] groups() default {};
+  Class<? extends Payload>[] payload() default {};
+}

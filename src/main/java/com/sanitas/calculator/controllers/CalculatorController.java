@@ -27,16 +27,21 @@ public class CalculatorController {
     final OperationEnum operation = operationRequest.getOperation();
     final OperationResponse operationResponse = new OperationResponse();
 
-    if (operation.equals(OperationEnum.SUBTRACT)) {
-      final Calculation subtractionOperation = new Calculation(new SubtractOperation());
-      operationResponse.setResult(subtractionOperation.execute(number1, number2));
-    }
+    final BigDecimal result = defineAndCalculateOperation(number1, number2, operation);
 
-    if (operation.equals(OperationEnum.SUM)) {
-      final Calculation sumOperation = new Calculation(new SumOperation());
-      operationResponse.setResult(sumOperation.execute(number1, number2));
-    }
+    operationResponse.setResult(result);
 
     return ResponseEntity.ok().body(operationResponse);
+  }
+
+  private BigDecimal defineAndCalculateOperation(final BigDecimal number1, final BigDecimal number2,
+                                                        final OperationEnum operation) {
+    if (operation.equals(OperationEnum.SUBTRACTION)) {
+      final Calculation subtractionOperation = new Calculation(new SubtractOperation());
+      return subtractionOperation.execute(number1, number2);
+    } else {
+      final Calculation sumOperation = new Calculation(new SumOperation());
+      return sumOperation.execute(number1, number2);
+    }
   }
 }
