@@ -29,8 +29,8 @@ public class CalculatorControllerTest {
   @Test
   public void shouldCalculateSumWhenValidInputsProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
-    operationRequest.setNumber1(new BigDecimal(10));
-    operationRequest.setNumber2(new BigDecimal(15));
+    operationRequest.setNumber1(new BigDecimal("10"));
+    operationRequest.setNumber2(new BigDecimal("15"));
     operationRequest.setOperation(OperationEnum.SUM);
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
@@ -40,14 +40,14 @@ public class CalculatorControllerTest {
             .contentType(MediaType.APPLICATION_JSON));
 
     result.andExpect(status().isOk());
-    result.andExpect(jsonPath("$.result").value(new BigDecimal(25)));
+    result.andExpect(jsonPath("$.result").value(new BigDecimal("25")));
   }
 
   @Test
   public void shouldCalculateSubtractionWhenValidInputsProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
-    operationRequest.setNumber1(new BigDecimal(10));
-    operationRequest.setNumber2(new BigDecimal(15));
+    operationRequest.setNumber1(new BigDecimal("10"));
+    operationRequest.setNumber2(new BigDecimal("15"));
     operationRequest.setOperation(OperationEnum.SUBTRACTION);
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
@@ -57,20 +57,21 @@ public class CalculatorControllerTest {
             .contentType(MediaType.APPLICATION_JSON));
 
     result.andExpect(status().isOk());
-    result.andExpect(jsonPath("$.result").value(new BigDecimal(-5)));
+    result.andExpect(jsonPath("$.result").value(new BigDecimal("-5")));
   }
 
   @Test
   public void shouldNotCalculateWhenInvalidOperationProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
-    operationRequest.setNumber1(new BigDecimal(10));
-    operationRequest.setNumber2(new BigDecimal(15));
+    operationRequest.setNumber1(new BigDecimal("10"));
+    operationRequest.setNumber2(new BigDecimal("15"));
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 
     final ResultActions result = mockMvc.perform(post("/calculator/calculate")
             .content(jsonBody)
             .contentType(MediaType.APPLICATION_JSON));
+
     result.andExpect(status().isBadRequest());
   }
 
@@ -78,7 +79,7 @@ public class CalculatorControllerTest {
   public void shouldNotCalculateWhenAnyParameterIsNull() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(null);
-    operationRequest.setNumber2(new BigDecimal(15));
+    operationRequest.setNumber2(new BigDecimal("15"));
     operationRequest.setOperation(OperationEnum.SUBTRACTION);
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
