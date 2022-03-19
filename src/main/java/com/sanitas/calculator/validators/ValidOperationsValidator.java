@@ -10,6 +10,10 @@ public class ValidOperationsValidator implements ConstraintValidator<ValidOperat
   @Override
   public boolean isValid(OperationEnum value, ConstraintValidatorContext context) {
 
-    return value.equals(OperationEnum.SUM) || value.equals(OperationEnum.SUBTRACTION);
+    if (null != value) {
+      return value.equals(OperationEnum.SUM) || value.equals(OperationEnum.SUBTRACTION);
+    }
+
+    return false;
   }
 }

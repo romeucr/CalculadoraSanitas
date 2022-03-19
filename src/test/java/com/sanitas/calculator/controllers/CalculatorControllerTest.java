@@ -1,6 +1,5 @@
 package com.sanitas.calculator.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sanitas.calculator.beans.OperationRequest;
 import com.sanitas.calculator.enums.OperationEnum;
@@ -66,6 +65,21 @@ public class CalculatorControllerTest {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal(10));
     operationRequest.setNumber2(new BigDecimal(15));
+
+    final String jsonBody = objMapper.writeValueAsString(operationRequest);
+
+    final ResultActions result = mockMvc.perform(post("/calculator/calculate")
+            .content(jsonBody)
+            .contentType(MediaType.APPLICATION_JSON));
+    result.andExpect(status().isBadRequest());
+  }
+
+  @Test
+  public void shouldNotCalculateWhenAnyParameterIsNull() throws Exception {
+    final OperationRequest operationRequest = new OperationRequest();
+    operationRequest.setNumber1(null);
+    operationRequest.setNumber2(new BigDecimal(15));
+    operationRequest.setOperation(OperationEnum.SUBTRACTION);
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 
