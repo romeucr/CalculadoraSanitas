@@ -17,4 +17,11 @@ public class DefaultError {
     return error;
   }
 
+  @Override
+  public String toString() {
+    return "DefaultError{" +
+            "field='" + field + '\'' +
+            ", error='" + error + '\'' +
+            '}';
+  }
 }

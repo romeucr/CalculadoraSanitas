@@ -1,5 +1,6 @@
 package com.sanitas.calculator.exceptions;
 
+import io.corp.calculator.TracerImpl;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,11 @@ import java.util.List;
 public class ExceptionHandlerAdvice {
 
 private final MessageSource messageSource;
+private final TracerImpl tracerAPI;
 
-  ExceptionHandlerAdvice(MessageSource messageSource) {
+  ExceptionHandlerAdvice(MessageSource messageSource, TracerImpl tracerAPI) {
     this.messageSource = messageSource;
+    this.tracerAPI = tracerAPI;
   }
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -30,6 +33,7 @@ private final MessageSource messageSource;
       final String message = messageSource.getMessage(e, LocaleContextHolder.getLocale());
       final DefaultError error = new DefaultError(e.getField(), message);
       errorList.add(error);
+      tracerAPI.trace(error);
     });
 
     return ResponseEntity.badRequest().body(errorList);
@@ -37,9 +41,9 @@ private final MessageSource messageSource;
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
   protected ResponseEntity<?> handle(HttpMessageNotReadableException exception) {
-    final DefaultError defaultError = new DefaultError("operation", "The operation informed is invalid.");
-
-    return ResponseEntity.badRequest().body(defaultError);
+    final DefaultError error = new DefaultError("operation", "The operation informed is invalid.");
+    tracerAPI.trace(error);
+    return ResponseEntity.badRequest().body(error);
   }
 
 }
