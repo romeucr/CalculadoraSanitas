@@ -1,4 +1,4 @@
-package com.sanitas.calculator.strategy;
+package com.sanitas.calculator.strategies;
 
 import java.math.BigDecimal;
 

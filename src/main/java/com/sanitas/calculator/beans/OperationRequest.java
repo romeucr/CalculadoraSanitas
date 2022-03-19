@@ -1,7 +1,7 @@
 package com.sanitas.calculator.beans;
 
 import com.sanitas.calculator.enums.OperationEnum;
-import com.sanitas.calculator.validator.ValidOperations;
+import com.sanitas.calculator.validators.ValidOperations;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;

@@ -1,6 +1,5 @@
-package com.sanitas.calculator.exception;
+package com.sanitas.calculator.exceptions;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,11 @@ import java.util.List;
 @RestControllerAdvice
 public class ExceptionHandlerAdvice {
 
-  @Autowired
-  MessageSource messageSource;
+private final MessageSource messageSource;
+
+  ExceptionHandlerAdvice(MessageSource messageSource) {
+    this.messageSource = messageSource;
+  }
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
   protected ResponseEntity<?> handle(MethodArgumentNotValidException exception) {

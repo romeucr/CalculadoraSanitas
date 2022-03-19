@@ -1,9 +1,9 @@
-package com.sanitas.calculator.controller;
+package com.sanitas.calculator.controllers;
 
 import com.sanitas.calculator.beans.OperationRequest;
 import com.sanitas.calculator.beans.OperationResponse;
 import com.sanitas.calculator.enums.OperationEnum;
-import com.sanitas.calculator.service.CalculatorService;
+import com.sanitas.calculator.services.CalculatorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +20,7 @@ public class CalculatorController {
   private final CalculatorService calculatorService;
 
   CalculatorController(CalculatorService calculatorService) {
-    this.calculatorService = new CalculatorService();
+    this.calculatorService = calculatorService;
   }
 
   @PostMapping("/calculate")

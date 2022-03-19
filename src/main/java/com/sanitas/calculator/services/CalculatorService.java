@@ -1,9 +1,9 @@
-package com.sanitas.calculator.service;
+package com.sanitas.calculator.services;
 
 import com.sanitas.calculator.enums.OperationEnum;
-import com.sanitas.calculator.strategy.Calculation;
-import com.sanitas.calculator.strategy.SubtractOperation;
-import com.sanitas.calculator.strategy.SumOperation;
+import com.sanitas.calculator.strategies.Calculation;
+import com.sanitas.calculator.strategies.SubtractOperation;
+import com.sanitas.calculator.strategies.SumOperation;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

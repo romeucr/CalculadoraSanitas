@@ -1,4 +1,4 @@
-package com.sanitas.calculator.validator;
+package com.sanitas.calculator.validators;
 
 import com.sanitas.calculator.enums.OperationEnum;
 
