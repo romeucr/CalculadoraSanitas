@@ -1,4 +1,4 @@
-package com.sanitas.calculator.validators;
+package com.sanitas.calculator.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

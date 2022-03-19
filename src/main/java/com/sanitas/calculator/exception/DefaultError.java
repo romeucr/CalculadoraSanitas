@@ -1,4 +1,4 @@
-package com.sanitas.calculator.exceptions;
+package com.sanitas.calculator.exception;
 
 public class DefaultError {
   private final String field;

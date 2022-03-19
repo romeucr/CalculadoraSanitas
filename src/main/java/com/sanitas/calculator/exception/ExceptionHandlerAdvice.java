@@ -1,4 +1,4 @@
-package com.sanitas.calculator.exceptions;
+package com.sanitas.calculator.exception;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

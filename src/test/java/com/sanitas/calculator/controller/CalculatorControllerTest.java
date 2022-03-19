@@ -1,4 +1,4 @@
-package com.sanitas.calculator.controllers;
+package com.sanitas.calculator.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sanitas.calculator.beans.OperationRequest;
