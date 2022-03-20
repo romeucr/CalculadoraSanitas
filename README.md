@@ -53,14 +53,14 @@ Para hacer el deploy en local de la aplicación, seguir los siguientes pasos:
 ```shell
 git clone https://github.com/romeucr/CalculadoraSanitas.git
 ```
-2) Instalar el jar de la librería de trace en el repositorio local de maven <path_to_jar_file> corresponde
+2) En la carpeta de la aplicación, instalar el jar de la librería de trace en el repositorio local de maven <path_to_jar_file> corresponde
    a la carpeta dónde está el jar de la librería. Al clonar el proyecto, el jar está en la carpeta lib.
 ```shell
    mvn install:install-file \
-   -Dfile=<path_to_jar_file> \
-   -DgroupId=io.corp \
+   -Dfile="<path_to_jar_file>" \
+   -DgroupId="io.corp" \
    -DartifactId=calculator \
-   -Dversion=1.0.0 \
+   -Dversion="1.0.0" \
    -Dpackaging=jar \
    -DgeneratePom=true
 ```
