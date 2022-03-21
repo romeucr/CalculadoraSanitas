@@ -2,7 +2,6 @@ package com.sanitas.calculator.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sanitas.calculator.beans.OperationRequest;
-import com.sanitas.calculator.enums.OperationEnum;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -19,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CalculatorControllerTest {
+class CalculatorControllerTest {
 
   @Autowired
   private MockMvc mockMvc;
@@ -27,11 +26,11 @@ public class CalculatorControllerTest {
   private ObjectMapper objMapper;
 
   @Test
-  public void shouldCalculateSumWhenValidInputsProvided() throws Exception {
+  void shouldCalculateSumWhenValidInputsProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
-    operationRequest.setOperation(OperationEnum.SUM);
+    operationRequest.setOperation("SUM");
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 
@@ -44,11 +43,11 @@ public class CalculatorControllerTest {
   }
 
   @Test
-  public void shouldCalculateSubtractionWhenValidInputsProvided() throws Exception {
+  void shouldCalculateSubtractionWhenValidInputsProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
-    operationRequest.setOperation(OperationEnum.SUBTRACTION);
+    operationRequest.setOperation("SUBTRACTION");
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 
@@ -61,7 +60,7 @@ public class CalculatorControllerTest {
   }
 
   @Test
-  public void shouldNotCalculateWhenInvalidOperationProvided() throws Exception {
+  void shouldNotCalculateWhenInvalidOperationProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
@@ -76,11 +75,11 @@ public class CalculatorControllerTest {
   }
 
   @Test
-  public void shouldNotCalculateWhenAnyParameterIsNull() throws Exception {
+  void shouldNotCalculateWhenAnyParameterIsNull() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(null);
     operationRequest.setNumber2(new BigDecimal("15"));
-    operationRequest.setOperation(OperationEnum.SUBTRACTION);
+    operationRequest.setOperation("SUBTRACTION");
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 

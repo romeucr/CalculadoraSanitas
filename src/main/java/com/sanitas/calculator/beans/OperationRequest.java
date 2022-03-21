@@ -1,6 +1,5 @@
 package com.sanitas.calculator.beans;
 
-import com.sanitas.calculator.enums.OperationEnum;
 import com.sanitas.calculator.validators.ValidOperations;
 
 import javax.validation.constraints.NotNull;
@@ -14,9 +13,9 @@ public class OperationRequest {
   @NotNull
   private BigDecimal number2;
 
-  @NotNull
   @ValidOperations
-  private OperationEnum operation;
+  @NotNull
+  private String operation;
 
   public BigDecimal getNumber1() {
     return number1;
@@ -26,7 +25,7 @@ public class OperationRequest {
     return number2;
   }
 
-  public OperationEnum getOperation() {
+  public String getOperation() {
     return operation;
   }
 
@@ -38,7 +37,7 @@ public class OperationRequest {
     this.number2 = number2;
   }
 
-  public void setOperation(OperationEnum operation) {
+  public void setOperation(String operation) {
     this.operation = operation;
   }
 }
