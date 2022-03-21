@@ -16,7 +16,7 @@ public class CalculatorServiceTest {
   private CalculatorService calculatorService;
 
   @Test
-  public void shouldCalculateSumWhenRequested() {
+  void shouldCalculateSumWhenRequested() {
     final BigDecimal actualResult =
             calculatorService.defineAndCalculateOperation(new BigDecimal("10"),
                                                           new BigDecimal("15"), OperationEnum.SUM);
@@ -26,7 +26,7 @@ public class CalculatorServiceTest {
   }
 
   @Test
-  public void shouldCalculateSubtractionWhenRequested() {
+  void shouldCalculateSubtractionWhenRequested() {
     final BigDecimal actualResult =
             calculatorService.defineAndCalculateOperation(new BigDecimal("10"),
                     new BigDecimal("15"), OperationEnum.SUBTRACTION);
@@ -36,7 +36,7 @@ public class CalculatorServiceTest {
   }
 
   @Test
-  public void shouldCalculateSumWithPrecisionAndScaleWhenRequested() {
+  void shouldCalculateSumWithPrecisionAndScaleWhenRequested() {
     final BigDecimal actualResult =
             calculatorService.defineAndCalculateOperation(new BigDecimal("1101310.16253"),
                     new BigDecimal("12315.123"), OperationEnum.SUBTRACTION);
@@ -46,8 +46,5 @@ public class CalculatorServiceTest {
 
     final int expectedScale= 5;
     Assertions.assertEquals(expectedScale, actualResult.scale());
-
-
-
   }
 }

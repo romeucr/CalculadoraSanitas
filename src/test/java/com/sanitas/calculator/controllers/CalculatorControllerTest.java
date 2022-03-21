@@ -27,7 +27,7 @@ public class CalculatorControllerTest {
   private ObjectMapper objMapper;
 
   @Test
-  public void shouldCalculateSumWhenValidInputsProvided() throws Exception {
+  void shouldCalculateSumWhenValidInputsProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
@@ -44,7 +44,7 @@ public class CalculatorControllerTest {
   }
 
   @Test
-  public void shouldCalculateSubtractionWhenValidInputsProvided() throws Exception {
+  void shouldCalculateSubtractionWhenValidInputsProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
@@ -61,7 +61,7 @@ public class CalculatorControllerTest {
   }
 
   @Test
-  public void shouldNotCalculateWhenInvalidOperationProvided() throws Exception {
+  void shouldNotCalculateWhenInvalidOperationProvided() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
@@ -76,7 +76,7 @@ public class CalculatorControllerTest {
   }
 
   @Test
-  public void shouldNotCalculateWhenAnyParameterIsNull() throws Exception {
+  void shouldNotCalculateWhenAnyParameterIsNull() throws Exception {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(null);
     operationRequest.setNumber2(new BigDecimal("15"));
