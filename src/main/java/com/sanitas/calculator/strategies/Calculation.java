@@ -3,9 +3,9 @@ package com.sanitas.calculator.strategies;
 import java.math.BigDecimal;
 
 public class Calculation {
-  private final MathOperations operation;
+  private final MathOperation operation;
 
-  public Calculation(MathOperations operation) {
+  public Calculation(MathOperation operation) {
     this.operation = operation;
   }
 

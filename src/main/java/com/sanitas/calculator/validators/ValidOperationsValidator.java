@@ -1,6 +1,6 @@
 package com.sanitas.calculator.validators;
 
-import com.sanitas.calculator.enums.OperationEnum;
+import com.sanitas.calculator.enums.OperationTypeEnum;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -11,7 +11,7 @@ public class ValidOperationsValidator implements ConstraintValidator<ValidOperat
 
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context) {
-    Predicate<OperationEnum> validOperation = operationEnum -> operationEnum.name().equals(value);
-    return Stream.of(OperationEnum.values()).anyMatch(validOperation);
+    Predicate<OperationTypeEnum> validOperation = operationEnum -> operationEnum.name().equals(value);
+    return Stream.of(OperationTypeEnum.values()).anyMatch(validOperation);
   }
 }

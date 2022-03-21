@@ -1,6 +1,6 @@
 package com.sanitas.calculator.enums;
 
-public enum OperationEnum {
+public enum OperationTypeEnum {
 
   SUM,
   SUBTRACTION
