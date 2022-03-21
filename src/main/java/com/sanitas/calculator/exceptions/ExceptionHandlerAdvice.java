@@ -25,7 +25,7 @@ private final TracerImpl tracerAPI;
   }
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
-  protected ResponseEntity<?> handle(MethodArgumentNotValidException exception) {
+  protected ResponseEntity<List<DefaultError>> handle(MethodArgumentNotValidException exception) {
     final List<DefaultError> errorList = new ArrayList<>();
     final List<FieldError> fieldErrorsList = exception.getBindingResult().getFieldErrors();
 
@@ -40,8 +40,8 @@ private final TracerImpl tracerAPI;
   }
 
   @ExceptionHandler(HttpMessageNotReadableException.class)
-  protected ResponseEntity<?> handle(HttpMessageNotReadableException exception) {
-    final DefaultError error = new DefaultError("operation", "The operation informed is invalid.");
+  protected ResponseEntity<DefaultError> handle(HttpMessageNotReadableException exception) {
+    final DefaultError error = new DefaultError("undefined", "Error deserializing object.");
     tracerAPI.trace(error);
     return ResponseEntity.badRequest().body(error);
   }

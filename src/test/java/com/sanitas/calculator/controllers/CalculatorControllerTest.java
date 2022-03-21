@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CalculatorControllerTest {
+class CalculatorControllerTest {
 
   @Autowired
   private MockMvc mockMvc;
@@ -31,7 +31,7 @@ public class CalculatorControllerTest {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
-    operationRequest.setOperation(OperationEnum.SUM);
+    operationRequest.setOperation("SUM");
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 
@@ -48,7 +48,7 @@ public class CalculatorControllerTest {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(new BigDecimal("10"));
     operationRequest.setNumber2(new BigDecimal("15"));
-    operationRequest.setOperation(OperationEnum.SUBTRACTION);
+    operationRequest.setOperation("SUBTRACTION");
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 
@@ -80,7 +80,7 @@ public class CalculatorControllerTest {
     final OperationRequest operationRequest = new OperationRequest();
     operationRequest.setNumber1(null);
     operationRequest.setNumber2(new BigDecimal("15"));
-    operationRequest.setOperation(OperationEnum.SUBTRACTION);
+    operationRequest.setOperation("SUBTRACTION");
 
     final String jsonBody = objMapper.writeValueAsString(operationRequest);
 

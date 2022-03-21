@@ -10,7 +10,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.math.BigDecimal;
 
 @ExtendWith(SpringExtension.class)
-public class CalculatorServiceTest {
+class CalculatorServiceTest {
 
   @InjectMocks
   private CalculatorService calculatorService;

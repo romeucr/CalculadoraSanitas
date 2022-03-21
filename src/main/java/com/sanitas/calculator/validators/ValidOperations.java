@@ -12,7 +12,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ FIELD })
 @Retention(RUNTIME)
 public @interface ValidOperations {
-  String message() default "The operation was not informed, is invalid or has not yet been implemented.";
+  String message() default "The operation is invalid.";
   Class<?>[] groups() default {};
   Class<? extends Payload>[] payload() default {};
 }

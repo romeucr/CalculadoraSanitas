@@ -28,7 +28,7 @@ public class CalculatorController {
 
     final BigDecimal number1 = operationRequest.getNumber1();
     final BigDecimal number2 = operationRequest.getNumber2();
-    final OperationEnum operation = operationRequest.getOperation();
+    final OperationEnum operation = OperationEnum.valueOf(operationRequest.getOperation());
     final OperationResponse operationResponse = new OperationResponse();
 
     final BigDecimal result = calculatorService.defineAndCalculateOperation(number1, number2, operation);
