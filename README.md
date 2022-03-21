@@ -1,7 +1,7 @@
 # Calculadora Sanitas
 
 ## Presentación
-La Calculadora Sanitas es un micro servicio desarrollado en Java + Spring y tiene como
+La Calculadora Sanitas es un microservicio desarrollado en Java + Spring y tiene como
 objetivo disponibilizar una API REST para la realización de operaciones matemáticas.
 Por ahora solamente SUMA y RESTA entre dos números están disponibles.
 
@@ -9,7 +9,7 @@ Por ahora solamente SUMA y RESTA entre dos números están disponibles.
 Ha sido elegido el [Strategy](https://refactoring.guru/es/design-patterns/strategy/java/example) Design Pattern para desarrollar el microservicio.
 Este patrón de design nos permite cambiar el comportamiento de una clase sin extenderla y con eso añadir nuevas operaciones a la calculadora muy facilmente.
 
-Para eso basta añadir el método en la interface MathOperations y implementar la operación en una clase que implementa la interface.
+Para eso basta añadir el método en la interface MathOperations e implementar la operación en una clase que implementa la interface.
 
 La clase de contexto Calculation es responsable por llamar la ejecución de la operación.
 
@@ -17,12 +17,12 @@ La clase de contexto Calculation es responsable por llamar la ejecución de la o
 Se utiliza el tipo [BigDecimal](https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html) para
 representar los números por ser el tipo apropriado cuando necesitamos que los datos sean más precisos.
 
-### Excepcion Handler
+### Exception Handler
 Ha sido implementado una clase responsable por interceptar excepciones para tratar los errores, devolviendo una respuesta
 que sea más entendible. En esta clase también se hace el trace de los errores, añadiéndolos en los logs.
 
 ### TracerAPI
-La libreria de trace, una libreria externa, que ha sido añadida al proyecto. Para poder utilizarla, ha sido creada una clase de
+La librería de trace, una librería externa, que ha sido añadida al proyecto. Para poder utilizarla, ha sido creada una clase de
 configuración responsable por la creación del bean que será utilizado en la aplicación.
 
 ### Testes
@@ -58,8 +58,8 @@ git clone https://github.com/romeucr/CalculadoraSanitas.git
 ```shell
    mvn install:install-file \
    -Dfile="<path_to_jar_file>" \
-   -DgroupId="io.corp" \
-   -DartifactId=calculator \
+   -DgroupId="io.corp.calculator" \
+   -DartifactId=tracer \
    -Dversion="1.0.0" \
    -Dpackaging=jar \
    -DgeneratePom=true
