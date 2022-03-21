@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 public class CalculationTest {
 
   @Test
-  public void shouldCalculateSumOperation() {
+  void shouldCalculateSumOperation() {
     final Calculation sumOperation = new Calculation(new SumOperation());
     final BigDecimal actualResult = sumOperation.execute(new BigDecimal("10"), new BigDecimal("15"));
     final BigDecimal expectedResult = new BigDecimal("25");
@@ -17,7 +17,7 @@ public class CalculationTest {
   }
 
   @Test
-  public void shouldCalculateSubtractOperation() {
+  void shouldCalculateSubtractOperation() {
     final Calculation sumOperation = new Calculation(new SubtractOperation());
     final BigDecimal actualResult = sumOperation.execute(new BigDecimal("10"), new BigDecimal("15"));
     final BigDecimal expectedResult = new BigDecimal("-5");
