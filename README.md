@@ -9,7 +9,8 @@ Por ahora solamente SUMA y RESTA entre dos números están disponibles.
 Ha sido elegido el [Strategy](https://refactoring.guru/es/design-patterns/strategy/java/example) Design Pattern para desarrollar el microservicio.
 Este patrón de design nos permite cambiar el comportamiento de una clase sin extenderla y con eso añadir nuevas operaciones a la calculadora muy facilmente.
 
-Para eso basta añadir el método en la interface MathOperations e implementar la operación en una clase que implementa la interface.
+Para eso basta añadir una nueva clase que implemente la interface MathOperations, incluir el nuevo tipo de operación en 
+el enumerado OperationTypeEnum y bifurcar el flujo en CalculatorService para llamar a la instancia de dicha operación.
 
 La clase de contexto Calculation es responsable por llamar la ejecución de la operación.
 
@@ -25,7 +26,7 @@ que sea más entendible. En esta clase también se hace el trace de los errores,
 La librería de trace, una librería externa, que ha sido añadida al proyecto. Para poder utilizarla, ha sido creada una clase de
 configuración responsable por la creación del bean que será utilizado en la aplicación.
 
-### Testes
+### Pruebas Unitarias
 Han sido creados testes automatizados para el controller, para el service y para las clases que implementan las operaciones
 matemáticas. En los tests son utilizados JUnit y Mockito.
 
