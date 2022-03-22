@@ -27,8 +27,8 @@ La librería de trace, una librería externa, que ha sido añadida al proyecto. 
 configuración responsable por la creación del bean que será utilizado en la aplicación.
 
 ### Pruebas Unitarias
-Han sido creados testes automatizados para el controller, para el service y para las clases que implementan las operaciones
-matemáticas. En los tests son utilizados JUnit y Mockito.
+Han sido creadas pruebas unitarias para el controller, para el service y para las clases que implementan las operaciones
+matemáticas. Fueron utilizados JUnit5 y Mockito.
 
 ### Controller
 Un controller único para la calculadora ha sido implementado. Es responsable por recibir la petición y repasar los
